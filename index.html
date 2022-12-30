@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dsa</title>
+</head>
+
+<body>
+    <header>1</header>
+    <h1 id="color"></h1>
+    <input id="name" type="text">
+    <button onclick="getSound()">API 요청</button>
+    <script>
+        function getSound() {
+            const name = document.getElementById('name').value
+            fetch(`http://localhost:8080/color/${name}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.color)
+                    document.getElementById('color').innerHTML = data.color
+                });
+        }
+    </script>
+</body>
+
+</html>
